@@ -1,13 +1,32 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+const port = 3000;
 
-app.get('/hello', (req, res) => {
-  res.send('Hello World!')
+app.use(bodyParser.json());
+
+app.get('/', (req, res) => {
+  console.log({ urlParam: req.query.alamat })
+  res.send('Hello World udin!')
 })
 
 app.get('/yoga', (req, res) => {
   res.send("Hello yoga")
+})
+
+
+// valiation
+app.post('/login', (req, res) => {
+  console.log({ requestFromOutside: req.body });
+
+  res.send("login berhasil");
+
+})
+
+// merubah
+app.put('/username', (req, res) => {
+  console.log({ updateData: req.body });
+  res.send("update berhasil");
 })
 
 app.listen(port, () => {
