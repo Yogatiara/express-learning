@@ -1,7 +1,7 @@
 const response = (statusCode, data, message, res) => {
   res.json(statusCode, [
     {
-      data,
+      payLoad: data,
       message,
       metadata: {
         prev: "",
